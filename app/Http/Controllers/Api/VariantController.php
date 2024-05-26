@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Variant;
+use App\Models\Products\Variant;
 use Illuminate\Http\Request;
 
 class VariantController

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Category;
+use App\Models\Products\Category;
 use Illuminate\Http\Request;
 
 class CategoryController

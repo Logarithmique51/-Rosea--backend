@@ -11,9 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('product_variant', function (Blueprint $table) {
-            $table->foreignId('product_id')->constrained();
-            $table->foreignId('variant_id')->constrained();
+        Schema::table('products', function (Blueprint $table) {
+            $table->foreignId('variant_id')->nullable()->constrained();
         });
     }
 
@@ -22,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::table('products', function (Blueprint $table) {
+            $table->removeColumn('variant_id');
+        });
     }
 };

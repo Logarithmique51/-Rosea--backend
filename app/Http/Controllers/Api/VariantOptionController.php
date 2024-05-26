@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Variant;
-use App\Models\VariantOption;
+use App\Models\Products\Variant;
+use App\Models\Products\VariantOption;
 use Illuminate\Http\Request;
 
 class VariantOptionController
