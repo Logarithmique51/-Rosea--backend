@@ -2,14 +2,16 @@
 
 namespace App\Models;
 
+use App\Models\Carts\Cart;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 
 /**
- * 
+ *
  *
  * @property int $id
  * @property \Illuminate\Support\Carbon|null $created_at
@@ -64,7 +66,9 @@ class Staff extends Authenticatable
         ];
     }
 
-    // protected function getDefaultGuardName(): string {
-    //     return 'staff';
-    // }
+    public function cart(): MorphOne
+    {
+        return $this->morphOne(Cart::class, 'cartable');
+    }
+
 }

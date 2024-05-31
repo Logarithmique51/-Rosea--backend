@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $number
@@ -40,6 +40,7 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
 class Address extends Model
 {
     use HasFactory;
+    public $timestamps = false;
 
     public function addresseable(): MorphTo
     {

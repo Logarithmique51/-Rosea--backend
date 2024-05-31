@@ -3,15 +3,18 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use App\Models\Carts\Cart;
 use App\Observers\UserObserver;
 use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $name
@@ -95,5 +98,15 @@ class User extends Authenticatable
     public function loyalty() : HasOne
     {
         return $this->hasOne(Loyalty::class);
+    }
+
+    public function cart(): MorphOne
+    {
+        return $this->morphOne(Cart::class, 'cartable');
+    }
+
+    public function addresses() : MorphOne
+    {
+        return $this->morphOne(Address::class,'addresseable');
     }
 }

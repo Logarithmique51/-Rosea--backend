@@ -4,6 +4,7 @@ namespace App\Models\Carts;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 /**
  *
@@ -33,5 +34,10 @@ class Cart extends Model
 {
     use HasFactory;
     protected $fillable = ['comment','sub_total','total','type'];
+
+    public function cartable(): MorphTo
+    {
+        return $this->morphTo();
+    }
 
 }
