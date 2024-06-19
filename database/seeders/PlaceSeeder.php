@@ -3,7 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\Address;
+use App\Models\Place;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Database\Seeder;
 
 class PlaceSeeder extends Seeder
@@ -14,7 +16,6 @@ class PlaceSeeder extends Seeder
     ];
     public function run(): void
     {
-        $address = Address::inRandomOrder()->take(2)->get();
-        dd($address);
+
     }
 }
